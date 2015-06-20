@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">檢驗醫學知識王!!!</string>
+    <string name="facebook_app_id">1094616817219320</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_about">關於</string>
+    <string name="title_activity_game_page">請選擇遊戲</string>
+</resources>
