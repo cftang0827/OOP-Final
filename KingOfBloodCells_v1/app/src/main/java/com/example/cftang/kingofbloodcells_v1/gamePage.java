@@ -1,17 +1,38 @@
 package com.example.cftang.kingofbloodcells_v1;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+
 
 
 public class gamePage extends ActionBarActivity {
 
+    private Button RBCKing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
+
+        RBCKing = (Button)findViewById(R.id.rbcking);
+        RBCKing.setOnClickListener(new View.OnClickListener()
+        {
+            public  void onClick(View view)
+            {
+                //new Activity
+                Intent intentFromMain2game1 = new Intent();
+                intentFromMain2game1.setClass(gamePage.this, RBCKingWindows.class);
+                startActivity(intentFromMain2game1);
+
+            }
+        }
+        );
+
     }
 
     @Override

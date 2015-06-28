@@ -43,6 +43,10 @@
             android:name=".gamePage"
             android:label="@string/title_activity_game_page" >
         </activity>
+        <activity
+            android:name=".RBCKingWindows"
+            android:label="@string/title_activity_rbcking_windows" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:id="@+id/RelativeLayout1">
+
+
+
+    <Button
+        android:id="@+id/startOrNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start"
+        android:textSize="20dp"/>
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:src="@drawable/bcp_01"
+        android:layout_below="@+id/startOrNext"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/OptionA"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgView" />
+
+    <ImageView
+        android:id="@+id/ImgOptA"
+        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignLeft="@id/OptionA"
+        android:layout_alignTop="@id/OptionA"
+        />
+
+    <Button
+        android:id="@+id/OptionB"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/OptionA" />
+
+    <ImageView
+        android:id="@+id/ImgOptB"
+        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignLeft="@id/OptionB"
+        android:layout_alignTop="@id/OptionB"
+        />
+
+    <Button
+        android:id="@+id/OptionC"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/OptionB" />
+
+    <ImageView
+        android:id="@+id/ImgOptC"
+        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignLeft="@id/OptionC"
+        android:layout_alignTop="@id/OptionC"
+        />
+
+    <Button
+        android:id="@+id/OptionD"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/OptionC" />
+
+    <ImageView
+        android:id="@+id/ImgOptD"
+        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
+        android:layout_alignLeft="@id/OptionD"
+        android:layout_alignTop="@id/OptionD"
+        />
+
+    <TextView
+        android:id="@+id/secRemain"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="25sp"
+        android:text="@string/timeLeft"
+        android:layout_alignTop="@+id/scoreRecord"
+        android:layout_toRightOf="@+id/scoreRecord"
+        android:layout_toEndOf="@+id/scoreRecord" />
+
+    <TextView
+        android:id="@+id/scoreRecord"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="@string/score"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/OptionD"
+        android:layout_alignStart="@+id/OptionD" />
+
+
+
+
+
+</RelativeLayout>

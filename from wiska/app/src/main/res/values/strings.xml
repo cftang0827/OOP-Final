@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">KingOfBloodCells</string>
+    <string name="action_settings">Settings</string>
+    <string name="prompt_title">請作答</string>
+    <string name="start">開始！</string>
+    <string name="nextQues">下一題</string>
+    <string name="about_title">關於檢驗醫學知識王</string>
+    <string name="about_msg">Android King of MT \n作者 羅偉嘉 湯智帆 韋登元\n\n
+                wsxswqazaa@gmail.com</string>
+    <string name="homepage_label">首頁</string>
+    <string name="correctString">恭喜答對惹</string>
+    <string name="wrongString">錯！答案是 </string>
+    <string name="menu_about">關於...</string>
+    <string name="menu_quit">結束</string>
+    <string name="timeLeft">時間：</string>
+    <string name="score">得分：</string>
+
+    <string name="neu">neutrophil</string>
+    <string name="eos">eosinophil</string>
+    <string name="baso">basophil</string>
+    <string name="gLym">large lymphocyte</string>
+    <string name="sLym">small lymphocyte</string>
+    <string name="PLT">platelet</string>
+    <string name="RBC">red blood cell</string>
+    <string name="mono">monocyte</string>
+</resources>
