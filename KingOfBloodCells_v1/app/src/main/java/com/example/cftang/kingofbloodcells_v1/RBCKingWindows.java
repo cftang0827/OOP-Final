@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.Profile;
+import com.facebook.login.widget.ProfilePictureView;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,24 +56,15 @@ public class RBCKingWindows extends ActionBarActivity {
     protected static final int MENU_ABOUT = Menu.FIRST;
     protected static final int MENU_Quit = Menu.FIRST+1;
 
+    public ProfilePictureView profilePictureView;
+    public static TextView greeting;
+
     boolean butPressed = false;
     Handler mHandler = new Handler();
     Thread t;
     int[] scoreArray = {0,20,40,60,100,160,230,310,400,500};
 
 
-
-//    private Handler handler=new Handler() {
-//
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//            if (ans.equalsIgnoreCase(btnA.getText().toString())) ImgOptA.setImageResource(R.drawable.correct_01);
-//            if (ans.equalsIgnoreCase(btnB.getText().toString())) ImgOptB.setImageResource(R.drawable.correct_01);
-//            if (ans.equalsIgnoreCase(btnC.getText().toString())) ImgOptC.setImageResource(R.drawable.correct_01);
-//            if (ans.equalsIgnoreCase(btnD.getText().toString())) ImgOptD.setImageResource(R.drawable.correct_01);
-//            mSec.setImageResource(R.drawable.sec_00);
-//        }
-//    };
 
     private void openOptionsDialog(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(RBCKingWindows.this);
@@ -155,6 +149,16 @@ public class RBCKingWindows extends ActionBarActivity {
         PhotoAndOption.put(photos[26], new String[]{getString(R.string.neu), getString(R.string.baso), getString(R.string.eos), getString((R.string.mono)), getString(R.string.baso)});
         PhotoAndOption.put(photos[27], new String[]{getString(R.string.sLym), getString(R.string.baso), getString(R.string.eos), getString((R.string.mono)), getString(R.string.sLym)});
         PhotoAndOption.put(photos[28], new String[]{getString(R.string.neu), getString(R.string.baso), getString(R.string.eos), getString((R.string.mono)), getString(R.string.neu)});
+
+
+
+        profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
+
+
+        Profile profile = Profile.getCurrentProfile();
+        profilePictureView.setProfileId(profile.getId());
+        greeting = (TextView) findViewById(R.id.greeting);
+        greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
 
     }
 

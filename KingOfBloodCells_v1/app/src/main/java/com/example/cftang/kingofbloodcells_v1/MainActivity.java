@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -46,6 +48,7 @@ import java.util.Arrays;
 
 public class MainActivity extends ActionBarActivity {
 
+    MediaPlayer mPlayer;
     private CallbackManager callbackManager;
     private TextView info;
     private LoginButton loginButton ;
@@ -87,24 +90,27 @@ public class MainActivity extends ActionBarActivity {
         info = (TextView)findViewById(R.id.textView2);
 
         loginButton = (LoginButton)findViewById(R.id.login_button);
+
+
+
+        //music
+
+
+
+
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 info.setText("\u767b\u5165\u6210\u529f \u8acb\u958b\u59cb\u9078\u64c7\u904a\u6232");
-//                loginResult.wait();
+
 
                 handlePendingAction();
                 updateUI();
 
-
-                //onClickPostPhoto();
-
-
-//                performPublish(PendingAction.POST_PHOTO, canPresentShareDialogWithPhotos);
-
-
-
-
+                Intent intentFromMain2game = new Intent();
+                intentFromMain2game.setClass(MainActivity.this, gamePage.class);
+                startActivity(intentFromMain2game);
 
             }
 
@@ -139,11 +145,6 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-
-
-
-
-
         setContentView(R.layout.activity_main);
 
         profileTracker = new ProfileTracker() {
@@ -158,9 +159,6 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-
-
-
         profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
          greeting = (TextView) findViewById(R.id.greeting);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -171,23 +169,25 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-        choosebutton = (Button) findViewById(R.id.choosGame);
-        choosebutton.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View view){
-                //new Activity to game
-                Intent intentFromMain2game = new Intent();
-                intentFromMain2game.setClass(MainActivity.this, gamePage.class);
-                startActivity(intentFromMain2game);
-
-            }
-
-        });
 
 
 
+//        choosebutton = (Button) findViewById(R.id.choosGame);
+//        choosebutton.setOnClickListener(new View.OnClickListener()
+//        {
+//            public void onClick(View view){
+//                //new Activity to game
+//                Intent intentFromMain2game = new Intent();
+//                intentFromMain2game.setClass(MainActivity.this, gamePage.class);
+//                startActivity(intentFromMain2game);
+//
+//            }
+//
+//        });
 
 
+        findViews();
+        secondImage.setImageResource(R.drawable.med);
     }
 
 
@@ -230,24 +230,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Image test
-    private ProfilePictureView profilePictureView;
+    public ProfilePictureView profilePictureView;
     public static  TextView greeting;
     private PendingAction pendingAction = PendingAction.NONE;
     private boolean canPresentShareDialog;
@@ -384,9 +368,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         loginButton.setEnabled(enableButtons || canPresentShareDialog);
-//        postStatusUpdateButton.setEnabled(enableButtons || canPresentShareDialog);
-//        postPhotoButton.setEnabled(enableButtons || canPresentShareDialogWithPhotos);
-//
+
         Profile profile = Profile.getCurrentProfile();
         if (enableButtons && profile != null) {
             profilePictureView.setProfileId(profile.getId());
@@ -427,7 +409,11 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
+    private ImageView secondImage;
 
+    private void findViews() {
+        secondImage = (ImageView) findViewById(R.id.imageView);
+    }
 
 
 
