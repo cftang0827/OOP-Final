@@ -1,3 +1,4 @@
+//此為遊戲選擇頁面
 package com.example.cftang.kingofbloodcells_v1;
 
 import android.content.Intent;
@@ -7,18 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.facebook.Profile;
-import com.facebook.login.widget.ProfilePictureView;
+
 
 
 public class gamePage extends ActionBarActivity {
 
     private Button RBCKing;
-    public ProfilePictureView profilePictureView;
-    public static TextView greeting;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +34,6 @@ public class gamePage extends ActionBarActivity {
         }
         );
 
-
-        profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
-
-
-        Profile profile = Profile.getCurrentProfile();
-        profilePictureView.setProfileId(profile.getId());
-        greeting = (TextView) findViewById(R.id.greeting);
-        greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
     }
 
     @Override

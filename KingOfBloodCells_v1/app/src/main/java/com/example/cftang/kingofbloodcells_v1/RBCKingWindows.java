@@ -1,3 +1,4 @@
+//此為遊戲介面
 package com.example.cftang.kingofbloodcells_v1;
 
 import android.app.AlertDialog;
@@ -13,56 +14,48 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.facebook.Profile;
-import com.facebook.login.widget.ProfilePictureView;
-
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-//import android.content.res.Resources;
-//import android.graphics.drawable.AnimationDrawable;
-//import android.os.Message;
+
 
 
 public class RBCKingWindows extends ActionBarActivity {
 
-    Button btnA;
-    Button btnB;
-    Button btnC;
-    Button btnD;
-    Button startAndNext;
+    private Button btnA;
+    private Button btnB;
+    private Button btnC;
+    private Button btnD;
+    private Button startAndNext;
 
-    ImageView ImgOptA;
-    ImageView ImgOptB;
-    ImageView ImgOptC;
-    ImageView ImgOptD;
-    ImageView imageBlood;
+    private ImageView ImgOptA;
+    private ImageView ImgOptB;
+    private ImageView ImgOptC;
+    private ImageView ImgOptD;
+    private ImageView imageBlood;
 
-    TextView mSec;
-    TextView mScore;
-    int mScoreBoard=0;
-    int secTrace ;
+    private TextView mSec;
+    private TextView mScore;
+    private int mScoreBoard=0;
+    private int secTrace ;
 
-    boolean startOrNot = false;
-    int quesNum = 5;
-    int[] quesChosen = new int[quesNum];
-    int currentQues ;
-    String[] Options;
-    String ans;
-    String ansOfUser;
-    Integer[] photos;
-    Map<Integer, String[]> PhotoAndOption = new HashMap<>(29);
+    private boolean startOrNot = false;
+    private int quesNum = 5;
+    private int[] quesChosen = new int[quesNum];
+    private int currentQues ;
+    private String[] Options;
+    private String ans;
+    private String ansOfUser;
+    private Integer[] photos;
+    private Map<Integer, String[]> PhotoAndOption = new HashMap<>(29);
     protected static final int MENU_ABOUT = Menu.FIRST;
     protected static final int MENU_Quit = Menu.FIRST+1;
 
-    public ProfilePictureView profilePictureView;
-    public static TextView greeting;
-
     boolean butPressed = false;
-    Handler mHandler = new Handler();
-    Thread t;
-    int[] scoreArray = {0,20,40,60,100,160,230,310,400,500};
+    private Handler mHandler = new Handler();
+    private Thread t;
+    private int[] scoreArray = {0,20,40,60,100,160,230,310,400,500};
 
 
 
@@ -91,6 +84,10 @@ public class RBCKingWindows extends ActionBarActivity {
     }
 
     @Override
+    /**Setup text and images of each choice button, time and score display, and the "start and next" button.
+     * Also sets HashMap PhotoAndOption: photo as key and 4 choices as value.
+     * The correct answer is the last element of String[] value.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rbcking_windows);
@@ -150,27 +147,25 @@ public class RBCKingWindows extends ActionBarActivity {
         PhotoAndOption.put(photos[27], new String[]{getString(R.string.sLym), getString(R.string.baso), getString(R.string.eos), getString((R.string.mono)), getString(R.string.sLym)});
         PhotoAndOption.put(photos[28], new String[]{getString(R.string.neu), getString(R.string.baso), getString(R.string.eos), getString((R.string.mono)), getString(R.string.neu)});
 
-
-
-        profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
-
-
-        Profile profile = Profile.getCurrentProfile();
-        profilePictureView.setProfileId(profile.getId());
-        greeting = (TextView) findViewById(R.id.greeting);
-        greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
-
     }
 
 
 
     private Button.OnClickListener startNext = new Button.OnClickListener(){
         @Override
+        /**Describe the things that will happen after clicking the "start and next" button.
+         * startOrNot == false: means the game hasn't started yet, or the series of 5 questions has all been shown.
+         *                      Clicking the button will start a new game with new scoring.
+         * startOrNot == true: means the game is now been playing. Clicking the button will enter the next question.
+         */
         public void onClick(View v) {
             imageBlood = (ImageView)findViewById(R.id.imgView);
+
+            //After answering all the questions in the series, startOrNot will be turned to false.
             if(currentQues==quesChosen.length){
                 startOrNot=false;
             }
+
             if(!startOrNot){
                 mScoreBoard=0;
                 mScore.setText(getText(R.string.score).toString()+mScoreBoard);
@@ -178,8 +173,12 @@ public class RBCKingWindows extends ActionBarActivity {
                 startAndNext.setText(R.string.nextQues);
 
                 currentQues = 0;
+
+                //create an int[] number to represent serial numbers of each questions in the database.
                 int[] number = new int[PhotoAndOption.size()];
                 for(int i=0; i<number.length;i++){number[i]=i;}
+
+                //Randomly take 5 unrepeated questions from the database, and save their serial number in int[] quesChosen.
                 for(int i=1; i<=quesNum; i++) {
                     int num = (int) (Math.random() * (number.length-i+1));
                     quesChosen[i-1]=number[num];
@@ -208,6 +207,9 @@ public class RBCKingWindows extends ActionBarActivity {
     };
 
     Runnable runnable = new Runnable() {
+        /**
+         * After the user clicks the choice button, stop the time running.
+         */
         public void run() {
             Calendar begin = Calendar.getInstance();
             butPressed=false;
@@ -253,11 +255,14 @@ public class RBCKingWindows extends ActionBarActivity {
     private Button.OnClickListener Abutton = new Button.OnClickListener(){
         @Override
         public void onClick(View v) {
+
+            // if startOrNot == false, clicking the choice button will lead to nothing happening.
             if(startOrNot) {
                 ansOfUser = btnA.getText().toString();
                 if (ans.equalsIgnoreCase(ansOfUser)) {
                     ImgOptA.setImageResource(R.drawable.correct_01);
                 } else {
+                    //If the user chose the incorrect answer, show "X" at the choice chosen and also show "O" at the correct answer.
                     ImgOptA.setImageResource(R.drawable.incorrect_01);
                     if (btnB.getText().toString().equalsIgnoreCase(ans)) ImgOptB.setImageResource(R.drawable.correct_01);
                     if (btnC.getText().toString().equalsIgnoreCase(ans)) ImgOptC.setImageResource(R.drawable.correct_01);
@@ -323,28 +328,7 @@ public class RBCKingWindows extends ActionBarActivity {
         }
     };
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        super.onCreateOptionsMenu(menu);
-//        menu.add(0, MENU_ABOUT, 0, R.string.menu_about);
-//        menu.add(0, MENU_Quit, 0, R.string.menu_quit);
-//        return true;
-//    }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item)
-//    {
-//        super.onOptionsItemSelected(item);
-//        switch (item.getItemId()) {
-//            case MENU_ABOUT:
-//                openOptionsDialog();
-//                break;
-//            case MENU_Quit:
-//                finish();
-//                break;
-//        }
-//        return true;
-//    }
+
 
 }
