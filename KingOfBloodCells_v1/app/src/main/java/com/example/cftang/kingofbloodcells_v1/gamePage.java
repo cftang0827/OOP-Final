@@ -8,18 +8,31 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-
+import com.facebook.AccessToken;
+import com.facebook.Profile;
+import com.facebook.login.widget.ProfilePictureView;
 
 
 public class gamePage extends ActionBarActivity {
 
+    private ProfilePictureView profilePictureView;
+
     private Button RBCKing;
+    public static TextView greeting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_game_page);
 
+        Profile profile = Profile.getCurrentProfile();
+        profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
+        greeting = (TextView) findViewById(R.id.greeting);
+
+        profilePictureView.setProfileId(profile.getId());
+        greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
         RBCKing = (Button)findViewById(R.id.rbcking);
         RBCKing.setOnClickListener(new View.OnClickListener()
         {
@@ -57,4 +70,26 @@ public class gamePage extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    private void updateUI() {
+        boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
+
+
+
+//        postStatusUpdateButton.setEnabled(enableButtons || canPresentShareDialog);
+//        postPhotoButton.setEnabled(enableButtons || canPresentShareDialogWithPhotos);
+//
+        Profile profile = Profile.getCurrentProfile();
+        profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
+        greeting = (TextView) findViewById(R.id.greeting);
+
+            profilePictureView.setProfileId(profile.getId());
+            greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
+
+    }
+
 }
+
+
+

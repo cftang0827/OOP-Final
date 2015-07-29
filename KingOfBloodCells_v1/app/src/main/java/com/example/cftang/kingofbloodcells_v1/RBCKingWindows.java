@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.Profile;
+import com.facebook.login.widget.ProfilePictureView;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -56,6 +60,8 @@ public class RBCKingWindows extends ActionBarActivity {
     private Handler mHandler = new Handler();
     private Thread t;
     private int[] scoreArray = {0,20,40,60,100,160,230,310,400,500};
+    private ProfilePictureView profilePictureView;
+    public static TextView greeting;
 
 
 
@@ -89,8 +95,20 @@ public class RBCKingWindows extends ActionBarActivity {
      * The correct answer is the last element of String[] value.
      */
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rbcking_windows);
+
+
+        Profile profile = Profile.getCurrentProfile();
+        profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
+        greeting = (TextView) findViewById(R.id.greeting);
+
+        profilePictureView.setProfileId(profile.getId());
+        greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
 
         btnA = (Button)findViewById(R.id.OptionA);
         btnB = (Button)findViewById(R.id.OptionB);
@@ -159,6 +177,7 @@ public class RBCKingWindows extends ActionBarActivity {
          * startOrNot == true: means the game is now been playing. Clicking the button will enter the next question.
          */
         public void onClick(View v) {
+
             imageBlood = (ImageView)findViewById(R.id.imgView);
 
             //After answering all the questions in the series, startOrNot will be turned to false.
@@ -328,6 +347,23 @@ public class RBCKingWindows extends ActionBarActivity {
         }
     };
 
+    private void updateUI() {
+        boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
+
+
+
+//        postStatusUpdateButton.setEnabled(enableButtons || canPresentShareDialog);
+//        postPhotoButton.setEnabled(enableButtons || canPresentShareDialogWithPhotos);
+//
+        Profile profile = Profile.getCurrentProfile();
+        if (enableButtons && profile != null) {
+            profilePictureView.setProfileId(profile.getId());
+            greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
+        } else {
+            profilePictureView.setProfileId(null);
+            greeting.setText(null);
+        }
+    }
 
 
 

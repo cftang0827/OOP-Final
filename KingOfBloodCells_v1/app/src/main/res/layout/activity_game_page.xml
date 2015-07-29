@@ -11,12 +11,10 @@
 
     <TextView android:text="請選擇遊戲" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
+        android:textSize="25dp"
         android:id="@+id/textView3"
         android:layout_above="@+id/imageView2"
-        android:layout_alignRight="@+id/rbcking"
-        android:layout_alignEnd="@+id/rbcking"
-        android:layout_marginBottom="58dp" />
+        android:layout_centerHorizontal="true" />
 
 
 
@@ -28,14 +26,14 @@
         android:textColor="#333"
         android:textSize="18sp"
         android:layout_above="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
 
     <Button
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:text="血球知識王"
         android:id="@+id/rbcking"
-        android:layout_marginTop="86dp"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true" />
 
@@ -57,13 +55,14 @@
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/profilePicture"
-        android:layout_height="100dp"
-        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
         android:gravity="center_horizontal"
         facebook:com_facebook_preset_size="normal"
 
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

@@ -98,11 +98,8 @@ public class MainActivity extends ActionBarActivity {
                 handlePendingAction();
                 updateUI();
 
-
-                //onClickPostPhoto();
-
-
-//                performPublish(PendingAction.POST_PHOTO, canPresentShareDialogWithPhotos);
+                Intent intent_game_page = new Intent(MainActivity.this,gamePage.class);
+                MainActivity.this.startActivity(intent_game_page);
 
 
 

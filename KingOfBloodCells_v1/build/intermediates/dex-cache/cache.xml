@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-62a331dc5858c95db3633e8a1bc8ecd1f7e1a7f4.jar" />
+    </item>
+    <item
+        jar="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\pre-dexed\debug\classes-ee55c4ffac54368c724289290b7383a6c180d41f.jar" />
+    </item>
+    <item
+        jar="D:\Android\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-b4f6736c946fbcce175c94233e607609eb9ac467.jar" />
+    </item>
+    <item
+        jar="C:\Users\CF Tang\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-0eaf5fdc794c42bdc455e932972151e0a799c219.jar" />
+    </item>
+    <item
+        jar="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78bfd2ec508b123ee7c03f4006ba7996ef9a8dc">
+        <dex dex="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\pre-dexed\debug\classes-c7fd2c53d83d4470f0b7d730988d5b14fac8ec9b.jar" />
+    </item>
+    <item
+        jar="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\CF Tang\github\OOP-Final\KingOfBloodCells_v1\app\build\intermediates\pre-dexed\debug\classes-ab0ad008756e19b730dc3e8d93de46d6259ba7ee.jar" />
+    </item>
+
+</items>

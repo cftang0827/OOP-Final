@@ -1,0 +1,152 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:id="@+id/RelativeLayout1">
+
+
+
+    <Button
+        android:id="@+id/startOrNext"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:text="@string/start"
+        android:textSize="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:src="@drawable/bcp_01"
+        android:layout_above="@+id/OptionA"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/OptionA"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/ImgOptA"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/ImgOptA"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_above="@+id/OptionB"
+        android:layout_toLeftOf="@+id/OptionA"
+        android:layout_toStartOf="@+id/OptionA" />
+
+    <Button
+        android:id="@+id/OptionB"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/OptionC"
+        android:layout_alignLeft="@+id/OptionC"
+        android:layout_alignStart="@+id/OptionC" />
+
+    <ImageView
+        android:id="@+id/ImgOptB"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/OptionA"
+        android:layout_alignLeft="@+id/ImgOptA"
+        android:layout_alignStart="@+id/ImgOptA" />
+
+    <Button
+        android:id="@+id/OptionC"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/OptionD"
+        android:layout_alignLeft="@+id/OptionA"
+        android:layout_alignStart="@+id/OptionA" />
+
+    <ImageView
+        android:id="@+id/ImgOptC"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/OptionC"
+        android:layout_alignLeft="@+id/ImgOptB"
+        android:layout_alignStart="@+id/ImgOptB" />
+
+    <Button
+        android:id="@+id/OptionD"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/secRemain"
+        android:layout_alignLeft="@+id/OptionC"
+        android:layout_alignStart="@+id/OptionC" />
+
+    <ImageView
+        android:id="@+id/ImgOptD"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/OptionC"
+        android:layout_alignLeft="@+id/ImgOptC"
+        android:layout_alignStart="@+id/ImgOptC" />
+
+
+
+    <TextView
+        android:id="@+id/secRemain"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:textSize="25sp"
+        android:text="@string/timeLeft"
+        android:layout_alignTop="@+id/scoreRecord"
+        android:layout_alignRight="@+id/imgView"
+        android:layout_alignEnd="@+id/imgView" />
+
+    <TextView
+        android:id="@+id/scoreRecord"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:text="@string/score"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.facebook.login.widget.ProfilePictureView
+        android:id="@+id/profilePicture"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:gravity="center_horizontal"
+        facebook:com_facebook_preset_size="normal"
+
+        android:layout_alignTop="@+id/greeting"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:textColor="#333"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/startOrNext"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="準備開始了嗎？"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/greeting"
+        android:layout_toLeftOf="@+id/startOrNext"
+        android:layout_toStartOf="@+id/startOrNext" />
+
+
+</RelativeLayout>
+<!-- From: file:/C:/Users/CF%20Tang/github/OOP-Final/KingOfBloodCells_v1/app/src/main/res/layout/activity_rbcking_windows.xml -->
