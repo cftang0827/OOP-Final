@@ -27,16 +27,17 @@
         android:layout_width="250dp"
         android:layout_height="200dp"
         android:src="@drawable/bcp_01"
-        android:layout_above="@+id/OptionA"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/greeting"
+        android:layout_alignStart="@+id/greeting" />
 
     <Button
         android:id="@+id/OptionA"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_alignTop="@+id/ImgOptA"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/imgView"
+        android:layout_alignLeft="@+id/OptionB"
+        android:layout_alignStart="@+id/OptionB" />
 
     <ImageView
         android:id="@+id/ImgOptA"
@@ -50,9 +51,9 @@
         android:id="@+id/OptionB"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_above="@+id/OptionC"
-        android:layout_alignLeft="@+id/OptionC"
-        android:layout_alignStart="@+id/OptionC" />
+        android:layout_below="@+id/OptionA"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/ImgOptB"
@@ -66,9 +67,9 @@
         android:id="@+id/OptionC"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_above="@+id/OptionD"
-        android:layout_alignLeft="@+id/OptionA"
-        android:layout_alignStart="@+id/OptionA" />
+        android:layout_below="@+id/OptionB"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/ImgOptC"
@@ -82,9 +83,9 @@
         android:id="@+id/OptionD"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_above="@+id/secRemain"
-        android:layout_alignLeft="@+id/OptionC"
-        android:layout_alignStart="@+id/OptionC" />
+        android:layout_below="@+id/OptionC"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/ImgOptD"
@@ -99,22 +100,22 @@
     <TextView
         android:id="@+id/secRemain"
         android:layout_width="130dp"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:textSize="25sp"
         android:text="@string/timeLeft"
         android:layout_alignTop="@+id/scoreRecord"
-        android:layout_alignRight="@+id/imgView"
-        android:layout_alignEnd="@+id/imgView" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/scoreRecord"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
         android:text="@string/score"
         android:textSize="25sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/OptionD"
+        android:layout_alignLeft="@+id/profilePicture"
+        android:layout_alignStart="@+id/profilePicture" />
 
     <com.facebook.login.widget.ProfilePictureView
         android:id="@+id/profilePicture"

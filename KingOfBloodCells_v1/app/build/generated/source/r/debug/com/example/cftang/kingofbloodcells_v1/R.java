@@ -1753,14 +1753,14 @@ containing a value of this type.
         public static final int sec_10=0x7f020084;
     }
     public static final class id {
-        public static final int ImgOptA=0x7f0c006e;
+        public static final int ImgOptA=0x7f0c0070;
         public static final int ImgOptB=0x7f0c0071;
         public static final int ImgOptC=0x7f0c0073;
         public static final int ImgOptD=0x7f0c0075;
-        public static final int OptionA=0x7f0c006d;
+        public static final int OptionA=0x7f0c006e;
         public static final int OptionB=0x7f0c006f;
-        public static final int OptionC=0x7f0c0070;
-        public static final int OptionD=0x7f0c0072;
+        public static final int OptionC=0x7f0c0072;
+        public static final int OptionD=0x7f0c0074;
         public static final int RelativeLayout1=0x7f0c006a;
         public static final int action0=0x7f0c0080;
         public static final int action_bar=0x7f0c0051;
@@ -1848,7 +1848,7 @@ containing a value of this type.
         public static final int radio=0x7f0c004b;
         public static final int rbcking=0x7f0c0063;
         public static final int right=0x7f0c002e;
-        public static final int scoreRecord=0x7f0c0076;
+        public static final int scoreRecord=0x7f0c0077;
         public static final int screen=0x7f0c001f;
         public static final int scrollView=0x7f0c0043;
         public static final int search_badge=0x7f0c0055;
@@ -1861,7 +1861,7 @@ containing a value of this type.
         public static final int search_plate=0x7f0c0059;
         public static final int search_src_text=0x7f0c005a;
         public static final int search_voice_btn=0x7f0c005e;
-        public static final int secRemain=0x7f0c0074;
+        public static final int secRemain=0x7f0c0076;
         public static final int select_dialog_listview=0x7f0c005f;
         public static final int shortcut=0x7f0c004a;
         public static final int showCustom=0x7f0c000f;
@@ -1883,7 +1883,7 @@ containing a value of this type.
         public static final int textView=0x7f0c0065;
         public static final int textView2=0x7f0c0068;
         public static final int textView3=0x7f0c0060;
-        public static final int textView4=0x7f0c0077;
+        public static final int textView4=0x7f0c006d;
         public static final int textView5=0x7f0c0069;
         public static final int time=0x7f0c0086;
         public static final int title=0x7f0c003d;

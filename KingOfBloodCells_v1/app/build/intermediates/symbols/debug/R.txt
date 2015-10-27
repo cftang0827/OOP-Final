@@ -527,14 +527,14 @@ int drawable sec_07 0x7f020081
 int drawable sec_08 0x7f020082
 int drawable sec_09 0x7f020083
 int drawable sec_10 0x7f020084
-int id ImgOptA 0x7f0c006e
+int id ImgOptA 0x7f0c0070
 int id ImgOptB 0x7f0c0071
 int id ImgOptC 0x7f0c0073
 int id ImgOptD 0x7f0c0075
-int id OptionA 0x7f0c006d
+int id OptionA 0x7f0c006e
 int id OptionB 0x7f0c006f
-int id OptionC 0x7f0c0070
-int id OptionD 0x7f0c0072
+int id OptionC 0x7f0c0072
+int id OptionD 0x7f0c0074
 int id RelativeLayout1 0x7f0c006a
 int id action0 0x7f0c0080
 int id action_bar 0x7f0c0051
@@ -622,7 +622,7 @@ int id progress_horizontal 0x7f0c0006
 int id radio 0x7f0c004b
 int id rbcking 0x7f0c0063
 int id right 0x7f0c002e
-int id scoreRecord 0x7f0c0076
+int id scoreRecord 0x7f0c0077
 int id screen 0x7f0c001f
 int id scrollView 0x7f0c0043
 int id search_badge 0x7f0c0055
@@ -635,7 +635,7 @@ int id search_mag_icon 0x7f0c0058
 int id search_plate 0x7f0c0059
 int id search_src_text 0x7f0c005a
 int id search_voice_btn 0x7f0c005e
-int id secRemain 0x7f0c0074
+int id secRemain 0x7f0c0076
 int id select_dialog_listview 0x7f0c005f
 int id shortcut 0x7f0c004a
 int id showCustom 0x7f0c000f
@@ -657,7 +657,7 @@ int id textSpacerNoButtons 0x7f0c0044
 int id textView 0x7f0c0065
 int id textView2 0x7f0c0068
 int id textView3 0x7f0c0060
-int id textView4 0x7f0c0077
+int id textView4 0x7f0c006d
 int id textView5 0x7f0c0069
 int id time 0x7f0c0086
 int id title 0x7f0c003d

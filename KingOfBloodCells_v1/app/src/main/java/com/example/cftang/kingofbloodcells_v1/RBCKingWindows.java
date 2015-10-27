@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -14,11 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.facebook.AccessToken;
 import com.facebook.Profile;
 import com.facebook.login.widget.ProfilePictureView;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,6 +61,8 @@ public class RBCKingWindows extends ActionBarActivity {
     private int[] scoreArray = {0,20,40,60,100,160,230,310,400,500};
     private ProfilePictureView profilePictureView;
     public static TextView greeting;
+    private CountDownTimer mCountDown;
+    private int getTimeInfo;
 
 
 
@@ -180,6 +181,8 @@ public class RBCKingWindows extends ActionBarActivity {
 
             imageBlood = (ImageView)findViewById(R.id.imgView);
 
+
+
             //After answering all the questions in the series, startOrNot will be turned to false.
             if(currentQues==quesChosen.length){
                 startOrNot=false;
@@ -220,56 +223,97 @@ public class RBCKingWindows extends ActionBarActivity {
             btnD.setText(Options[3]);
             ans = Options[4];
 
-            t = new Thread(runnable);
-            t.start();
+//            t = new Thread(runnable);
+//            t.start();
+
+            mCountDown = new CountDownTimer(10000,1000){
+
+                @Override
+                public void onFinish() {
+                    // TODO Auto-generated method stub
+                    mSec.setText("Done!");
+                }
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    // TODO Auto-generated method stub
+                    mSec.setText(getText(R.string.timeLeft).toString()+millisUntilFinished/1000);
+                    getTimeInfo = (int)millisUntilFinished/1000;
+                }
+
+            }.start();
+
+
+
+
+
         }
     };
 
-    Runnable runnable = new Runnable() {
-        /**
-         * After the user clicks the choice button, stop the time running.
-         */
-        public void run() {
-            Calendar begin = Calendar.getInstance();
-            butPressed=false;
-            do{
-                try{Thread.sleep(100);}catch(InterruptedException e){e.printStackTrace();};
-                Calendar now = Calendar.getInstance();
-                final int deltaSec = 60*(now.get(Calendar.MINUTE)-begin.get(Calendar.MINUTE))+(now.get(Calendar.SECOND)-begin.get(Calendar.SECOND));
-                if(deltaSec>=10){
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            mSec.setText(getText(R.string.timeLeft).toString()+Integer.toString(0));
-                        }
-                    });
-                    secTrace = 0;
-                    break;
-                }
-                mHandler.post(new Runnable() {
-                    public void run() {
-                        mSec.setText(getText(R.string.timeLeft).toString()+Integer.toString(10-deltaSec));
-                        secTrace = 10-deltaSec;
-                    }
-                });
-                if(butPressed){
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            butPressed=false;
-                        }
-                    });
-                    break;
-                }
-            }while (true);
-            mHandler.post(new Runnable() {
-                public void run() {
-                    if(ans.equalsIgnoreCase(ansOfUser)) {
-                        mScoreBoard += scoreArray[secTrace];
-                        mScore.setText(getText(R.string.score).toString() + mScoreBoard);
-                    }
-                }
-            });
-        }
-    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    Runnable runnable = new Runnable() {
+//        /**
+//         * After the user clicks the choice button, stop the time running.
+//         */
+//        public void run() {
+//            Calendar begin = Calendar.getInstance();
+//            butPressed=false;
+//            do{
+//                try{Thread.sleep(100);}catch(InterruptedException e){e.printStackTrace();};
+//                Calendar now = Calendar.getInstance();
+//                final int deltaSec = 60*(now.get(Calendar.MINUTE)-begin.get(Calendar.MINUTE))+(now.get(Calendar.SECOND)-begin.get(Calendar.SECOND));
+//                if(deltaSec>=10){
+//                    mHandler.post(new Runnable() {
+//                        public void run() {
+//                            mSec.setText(getText(R.string.timeLeft).toString()+Integer.toString(0));
+//                        }
+//                    });
+//                    secTrace = 0;
+//                    break;
+//                }
+//                mHandler.post(new Runnable() {
+//                    public void run() {
+//                        mSec.setText(getText(R.string.timeLeft).toString()+Integer.toString(10-deltaSec));
+//                        secTrace = 10-deltaSec;
+//                    }
+//                });
+//                if(butPressed){
+//                    mHandler.post(new Runnable() {
+//                        public void run() {
+//                            butPressed=false;
+//                        }
+//                    });
+//                    break;
+//                }
+//            }while (true);
+//            mHandler.post(new Runnable() {
+//                public void run() {
+//                    if(ans.equalsIgnoreCase(ansOfUser)) {
+//                        mScoreBoard += scoreArray[secTrace];
+//                        mScore.setText(getText(R.string.score).toString() + mScoreBoard);
+//                    }
+//                }
+//            });
+//        }
+//    };
 
     private Button.OnClickListener Abutton = new Button.OnClickListener(){
         @Override
@@ -289,6 +333,9 @@ public class RBCKingWindows extends ActionBarActivity {
                 }
                 butPressed=true;
             }
+            mCountDown.cancel();
+            mScoreBoard += scoreArray[getTimeInfo];
+            mScore.setText(getText(R.string.score).toString() + mScoreBoard);
         }
     };
 
@@ -307,6 +354,9 @@ public class RBCKingWindows extends ActionBarActivity {
                 }
                 butPressed=true;
             }
+            mCountDown.cancel();
+            mScoreBoard += scoreArray[getTimeInfo];
+            mScore.setText(getText(R.string.score).toString() + mScoreBoard);
 
         }
     };
@@ -326,6 +376,9 @@ public class RBCKingWindows extends ActionBarActivity {
                 }
                 butPressed=true;
             }
+            mCountDown.cancel();
+            mScoreBoard += scoreArray[getTimeInfo];
+            mScore.setText(getText(R.string.score).toString() + mScoreBoard);
         }
     };
 
@@ -344,26 +397,13 @@ public class RBCKingWindows extends ActionBarActivity {
                 }
                 butPressed=true;
             }
+            mCountDown.cancel();
+            mScoreBoard += scoreArray[getTimeInfo];
+            mScore.setText(getText(R.string.score).toString() + mScoreBoard);
         }
     };
 
-    private void updateUI() {
-        boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
 
-
-
-//        postStatusUpdateButton.setEnabled(enableButtons || canPresentShareDialog);
-//        postPhotoButton.setEnabled(enableButtons || canPresentShareDialogWithPhotos);
-//
-        Profile profile = Profile.getCurrentProfile();
-        if (enableButtons && profile != null) {
-            profilePictureView.setProfileId(profile.getId());
-            greeting.setText(getString(R.string.hello_user, profile.getFirstName()));
-        } else {
-            profilePictureView.setProfileId(null);
-            greeting.setText(null);
-        }
-    }
 
 
 

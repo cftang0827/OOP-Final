@@ -11,4 +11,4 @@
      <item android:drawable="@drawable/sec_03" android:duration="1000" />
      <item android:drawable="@drawable/sec_02" android:duration="1000" />
      <item android:drawable="@drawable/sec_01" android:duration="1000" />
-</animation-list> <!-- From: file:/C:/Users/CF%20Tang/github/OOP-Final/KingOfBloodCells_v1/app/src/main/res/drawable/ani_sec.xml -->
+</animation-list> <!-- From: file:/D:/github/OOP-Final/KingOfBloodCells_v1/app/src/main/res/drawable/ani_sec.xml -->
